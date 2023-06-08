@@ -1,8 +1,13 @@
 import React from 'react';
 import './styles.css';
 import { Product } from '..';
+import { data } from '../../data';
 
 export const Home: React.FC = () => {
+  const firstRowProducts = data.slice(0, 2);
+  const secondRowProducts = data.slice(2, 5);
+  const thirdRowProducts = data[5];
+
   return (
     <div>
       <div className="home">
@@ -14,16 +19,31 @@ export const Home: React.FC = () => {
           />
 
           <div className="home_container_row">
-            <Product />
-            <Product />
+            {firstRowProducts.map((product) => (
+              <Product
+                key={product.id}
+                id={product.id}
+                title={product.title}
+                price={product.price}
+                rating={product.rating}
+                imageUrl={product.imageUrl}
+              />
+            ))}
           </div>
           <div className="home_container_row">
-            <Product />
-            <Product />
-            <Product />
+            {secondRowProducts.map((product) => (
+              <Product
+                key={product.id}
+                id={product.id}
+                title={product.title}
+                price={product.price}
+                rating={product.rating}
+                imageUrl={product.imageUrl}
+              />
+            ))}
           </div>
           <div className="home_container_row">
-            <Product />
+            <Product {...thirdRowProducts} />
           </div>
         </div>
       </div>
