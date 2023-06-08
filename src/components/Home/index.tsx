@@ -1,5 +1,6 @@
 import React from 'react';
 import './styles.css';
+import { Product } from '..';
 
 export const Home: React.FC = () => {
   return (
@@ -12,9 +13,18 @@ export const Home: React.FC = () => {
             className="home_container_image"
           />
 
-          <div className="home_container_row"></div>
-          <div className="home_container_row"></div>
-          <div className="home_container_row"></div>
+          <div className="home_container_row">
+            <Product />
+            <Product />
+          </div>
+          <div className="home_container_row">
+            <Product />
+            <Product />
+            <Product />
+          </div>
+          <div className="home_container_row">
+            <Product />
+          </div>
         </div>
       </div>
     </div>
