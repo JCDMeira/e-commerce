@@ -16,18 +16,18 @@ export const Header: React.FC = () => {
 
       <div className="header_nav">
         <div className="nav_item">
-          <span className="nav_itemLineOne">Hello Guest</span>
-          <span className="nav_itemLineTwo">Sign in</span>
+          <span className="nav_item_lineOne">Hello Guest</span>
+          <span className="nav_item_lineTwo">Sign in</span>
         </div>
 
         <div className="nav_item">
-          <span className="nav_itemLineOne">Your</span>
-          <span className="nav_itemLineTwo">Shop</span>
+          <span className="nav_item_lineOne">Your</span>
+          <span className="nav_item_lineTwo">Shop</span>
         </div>
 
         <div className="nav_item">
-          <ShoppingBasket />
-          <span className="nav_itemLineTwo">0</span>
+          <ShoppingBasket className="nav_item_basket" />
+          <span className="nav_item_lineTwo nav__basket_count">0</span>
         </div>
       </div>
     </div>
