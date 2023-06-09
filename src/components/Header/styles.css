@@ -75,6 +75,13 @@
   margin-right: 50px;
   margin-left: 10px;
 }
+.nav_item_icon {
+  width: 28px;
+}
+
+.nav_item_basket {
+  flex-direction: row;
+}
 
 .nav__basket_count {
   margin-left: 10px;

@@ -25,8 +25,10 @@ export const Header: React.FC = () => {
           <span className="nav_item_lineTwo">Shop</span>
         </div>
 
-        <div className="nav_item">
-          <ShoppingBasket className="nav_item_basket" />
+        <div className="nav_item nav_item_basket">
+          <div className="nav_item_icon">
+            <ShoppingBasket className="nav_item_basket" />
+          </div>
           <span className="nav_item_lineTwo nav__basket_count">0</span>
         </div>
       </div>
