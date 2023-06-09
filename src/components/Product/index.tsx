@@ -1,15 +1,8 @@
 import React from 'react';
 import './styles.css';
+import { ProductModel } from '../../Types';
 
-type Productprops = {
-  id: string;
-  title: string;
-  price: number;
-  rating: number;
-  imageUrl: string;
-};
-
-export const Product: React.FC<Productprops> = ({
+export const Product: React.FC<ProductModel> = ({
   id,
   title,
   price,
