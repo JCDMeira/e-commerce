@@ -3,3 +3,4 @@ export * from './CheckoutProduct';
 export * from './Header';
 export * from './Home';
 export * from './Product';
+export * from './Subtotal';

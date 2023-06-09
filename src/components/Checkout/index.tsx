@@ -1,6 +1,6 @@
 import React from 'react';
 import './styles.css';
-import { CheckoutProduct } from '..';
+import { CheckoutProduct, Subtotal } from '..';
 
 export const Checkout: React.FC = () => {
   return (
@@ -23,7 +23,9 @@ export const Checkout: React.FC = () => {
         </div>
       </div>
 
-      <div className="checkout_right">subtotal</div>
+      <div className="checkout_right">
+        <Subtotal />
+      </div>
     </div>
   );
 };
