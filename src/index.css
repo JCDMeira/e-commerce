@@ -27,3 +27,7 @@ button {
 button:hover {
   cursor: pointer;
 }
+
+.link_navigation {
+  text-decoration: none;
+}

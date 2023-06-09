@@ -7,7 +7,7 @@ export const Header: React.FC = () => {
   const { state } = UseProductConsumer();
   return (
     <div className="header">
-      <Link to={'/'}>
+      <Link to={'/'} className="link_navigation">
         <div className="header_logo">
           <Storefront fontSize="large" className="header_logo_image" />
           <h2 className="header_logo_title">eShopp</h2>
