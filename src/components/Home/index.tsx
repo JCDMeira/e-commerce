@@ -20,26 +20,12 @@ export const Home: React.FC = () => {
 
           <div className="home_container_row">
             {firstRowProducts.map((product) => (
-              <Product
-                key={product.id}
-                id={product.id}
-                title={product.title}
-                price={product.price}
-                rating={product.rating}
-                imageUrl={product.imageUrl}
-              />
+              <Product key={product.id} {...product} />
             ))}
           </div>
           <div className="home_container_row">
             {secondRowProducts.map((product) => (
-              <Product
-                key={product.id}
-                id={product.id}
-                title={product.title}
-                price={product.price}
-                rating={product.rating}
-                imageUrl={product.imageUrl}
-              />
+              <Product key={product.id} {...product} />
             ))}
           </div>
           <div className="home_container_row">

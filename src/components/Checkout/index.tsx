@@ -1,8 +1,10 @@
 import React from 'react';
 import './styles.css';
 import { CheckoutProduct, Subtotal } from '..';
+import { UseProductConsumer } from '../../contexts';
 
 export const Checkout: React.FC = () => {
+  const { state } = UseProductConsumer();
   return (
     <div className="checkout">
       <div className="checkout_left">
@@ -13,13 +15,9 @@ export const Checkout: React.FC = () => {
         />
         <div>
           <h2 className="checkout_title">Your Shopping Basket</h2>
-          <CheckoutProduct
-            id={''}
-            title={''}
-            price={0}
-            rating={0}
-            imageUrl={''}
-          />
+          {state.basket.map((product) => (
+            <CheckoutProduct key={product.id} {...product} />
+          ))}
         </div>
       </div>
 

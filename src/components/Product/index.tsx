@@ -1,14 +1,21 @@
 import React from 'react';
 import './styles.css';
 import { ProductModel } from '../../Types';
+import { UseProductConsumer } from '../../contexts';
 
-export const Product: React.FC<ProductModel> = ({
-  id,
-  title,
-  price,
-  rating,
-  imageUrl,
-}) => {
+export const Product: React.FC<ProductModel> = (props) => {
+  const { id, title, price, rating, imageUrl } = props;
+  const { dispatch } = UseProductConsumer();
+
+  const addToBasket = () => {
+    dispatch({
+      type: 'ADD_TO_BASKET',
+      payload: {
+        ...props,
+      },
+    });
+  };
+
   return (
     <div className="product" id={id}>
       <div className="product__info">
@@ -30,7 +37,7 @@ export const Product: React.FC<ProductModel> = ({
 
       <img src={imageUrl} alt="product image" />
 
-      <button onClick={() => console.log('teste')}>Add to Basket</button>
+      <button onClick={addToBasket}>Add to Basket</button>
     </div>
   );
 };

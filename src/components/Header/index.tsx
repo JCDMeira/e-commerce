@@ -1,8 +1,10 @@
 import { Search, ShoppingBasket, Storefront } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
 import './styles.css';
+import { UseProductConsumer } from '../../contexts';
 
 export const Header: React.FC = () => {
+  const { state } = UseProductConsumer();
   return (
     <div className="header">
       <Link to={'/'}>
@@ -33,7 +35,9 @@ export const Header: React.FC = () => {
             <div className="nav_item_icon">
               <ShoppingBasket className="nav_item_basket" />
             </div>
-            <span className="nav_item_lineTwo nav__basket_count">0</span>
+            <span className="nav_item_lineTwo nav__basket_count">
+              {state.basket.length}
+            </span>
           </div>
         </Link>
       </div>

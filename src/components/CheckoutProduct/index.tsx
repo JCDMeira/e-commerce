@@ -4,14 +4,13 @@ import { ProductModel } from '../../Types';
 
 export const CheckoutProduct: React.FC<ProductModel> = ({
   imageUrl,
-  id,
   price,
   rating,
   title,
 }) => {
   return (
-    <div className="checkoutProduct" id={id}>
-      <img src={imageUrl} alt="" className="checkoutProduct__image" />
+    <div className="checkoutProduct">
+      <img src={imageUrl} alt="" className="checkoutProduct_image" />
 
       <div className="checkoutProduct_info">
         <p className="checkoutProduct_title">{title}</p>
