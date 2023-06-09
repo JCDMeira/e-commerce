@@ -18,6 +18,12 @@ code {
     monospace;
 }
 
+button {
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+}
+
 button:hover {
   cursor: pointer;
 }
