@@ -1,13 +1,20 @@
 import React from 'react';
 import './styles.css';
 import { ProductModel } from '../../Types';
+import { UseProductConsumer } from '../../contexts';
 
 export const CheckoutProduct: React.FC<ProductModel> = ({
   imageUrl,
   price,
   rating,
   title,
+  id,
 }) => {
+  const { dispatch } = UseProductConsumer();
+
+  const removeFromBasket = () => {
+    dispatch({ type: 'REMOVE_FROM_BASKET', payload: { id } });
+  };
   return (
     <div className="checkoutProduct">
       <img src={imageUrl} alt="" className="checkoutProduct_image" />
@@ -25,9 +32,7 @@ export const CheckoutProduct: React.FC<ProductModel> = ({
               <p key={_ + i}>⭐</p>
             ))}
         </div>
-        <button onClick={() => console.log('remove')}>
-          Remove from Basket
-        </button>
+        <button onClick={removeFromBasket}>Remove from Basket</button>
       </div>
     </div>
   );

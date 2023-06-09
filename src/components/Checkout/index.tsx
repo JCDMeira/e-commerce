@@ -5,6 +5,7 @@ import { UseProductConsumer } from '../../contexts';
 
 export const Checkout: React.FC = () => {
   const { state } = UseProductConsumer();
+
   return (
     <div className="checkout">
       <div className="checkout_left">
