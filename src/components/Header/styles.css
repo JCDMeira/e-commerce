@@ -73,6 +73,12 @@
   color: white;
 }
 
+.nav_button {
+  border: none;
+  background-color: transparent;
+  color: #fff;
+}
+
 .nav_item_basket {
   display: flex;
   align-items: center;

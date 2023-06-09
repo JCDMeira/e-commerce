@@ -1,9 +1,14 @@
-import React, { useState } from 'react';
+import React, { SyntheticEvent, useState } from 'react';
 import './styles.css';
 import { Storefront } from '@material-ui/icons';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { createUser, signIn } from '../../database/Firebase.js';
+import { UseAuthConsumer } from '../../contexts/useAuth.js';
 
 export const Login: React.FC = () => {
+  const navigate = useNavigate();
+  const { login } = UseAuthConsumer();
+
   const [createForm, setCreateForm] = useState({ email: '', password: '' });
 
   const onChange = ({
@@ -11,7 +16,26 @@ export const Login: React.FC = () => {
   }: React.ChangeEvent<HTMLInputElement>) =>
     setCreateForm((current) => ({ ...current, [name]: value }));
 
-  const signIn = () => console.log('login');
+  const loginUser = (e: SyntheticEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+
+    signIn(createForm.email, createForm.password)
+      .then((res) => {
+        login(res);
+        navigate('/');
+      })
+      .catch((error: Error) => console.log(error.message));
+  };
+
+  const register = () => {
+    createUser(createForm.email, createForm.password)
+      .then((auth) => {
+        if (auth) {
+          navigate('/');
+        }
+      })
+      .catch((error: Error) => console.log(error.message));
+  };
 
   return (
     <div className="login">
@@ -42,7 +66,11 @@ export const Login: React.FC = () => {
             onChange={onChange}
           />
 
-          <button type="submit" className="login_signInButton" onClick={signIn}>
+          <button
+            type="submit"
+            className="login_signInButton"
+            onClick={loginUser}
+          >
             Sign In
           </button>
         </form>
@@ -55,7 +83,8 @@ export const Login: React.FC = () => {
 
         <button
           className="login_registerButton"
-          onClick={() => console.log('a')}
+          onClick={register}
+          type="button"
         >
           Create your eShop Account
         </button>

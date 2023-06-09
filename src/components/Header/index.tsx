@@ -1,10 +1,18 @@
 import { Search, ShoppingBasket, Storefront } from '@material-ui/icons';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './styles.css';
-import { UseProductConsumer } from '../../contexts';
+import { UseAuthConsumer, UseProductConsumer } from '../../contexts';
 
 export const Header: React.FC = () => {
+  const navigate = useNavigate();
   const { state } = UseProductConsumer();
+  const { user, logout } = UseAuthConsumer();
+  console.log(user);
+
+  const onLogout = () => {
+    logout();
+    navigate('/');
+  };
   return (
     <div className="header">
       <Link to={'/'} className="link_navigation">
@@ -21,10 +29,25 @@ export const Header: React.FC = () => {
 
       <div className="header_nav">
         <div className="nav_item">
-          <span className="nav_item_lineOne">Hello Guest</span>
-          <Link className="nav_item_lineTwo nav_link" to={'/login'}>
-            Sign in
-          </Link>
+          {user.email ? (
+            <>
+              <span className="nav_item_lineOne">{user.email}</span>
+
+              <button
+                className="nav_item_lineTwo nav_button"
+                onClick={onLogout}
+              >
+                Sign out
+              </button>
+            </>
+          ) : (
+            <>
+              <span className="nav_item_lineOne">Hello Guest</span>
+              <Link className="nav_item_lineTwo nav_link" to={'/login'}>
+                Sign in
+              </Link>
+            </>
+          )}
         </div>
 
         <div className="nav_item">
