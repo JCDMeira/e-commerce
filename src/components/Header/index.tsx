@@ -7,12 +7,12 @@ export const Header: React.FC = () => {
   const navigate = useNavigate();
   const { state } = UseProductConsumer();
   const { user, logout } = UseAuthConsumer();
-  console.log(user);
 
   const onLogout = () => {
     logout();
     navigate('/');
   };
+
   return (
     <div className="header">
       <Link to={'/'} className="link_navigation">
