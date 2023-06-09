@@ -68,6 +68,11 @@
   font-weight: 800;
 }
 
+.nav_link {
+  text-decoration: none;
+  color: white;
+}
+
 .nav_item_basket {
   display: flex;
   align-items: center;

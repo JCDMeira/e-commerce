@@ -22,7 +22,9 @@ export const Header: React.FC = () => {
       <div className="header_nav">
         <div className="nav_item">
           <span className="nav_item_lineOne">Hello Guest</span>
-          <span className="nav_item_lineTwo">Sign in</span>
+          <Link className="nav_item_lineTwo nav_link" to={'/login'}>
+            Sign in
+          </Link>
         </div>
 
         <div className="nav_item">
